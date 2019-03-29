@@ -35,6 +35,7 @@
 #include "track/recognition.h"
 #include "ui/dialog.h"
 #include "ui/ui.h"
+#include "taiga/script.h"
 
 class Aggregator Aggregator;
 
@@ -349,7 +350,8 @@ std::wstring GetTorrentDownloadPath(const FeedItem::EpisodeData& episode_data) {
       }
     }
   }
-
+  ReplaceString(path, L"\\", L"\\\\");
+  path = ReplaceVariables(path,episode_data,false,false);
   RemoveTrailingSlash(path);  // gets mixed up as an escape character
 
   return path;
