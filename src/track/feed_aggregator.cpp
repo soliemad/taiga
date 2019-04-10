@@ -344,15 +344,16 @@ std::wstring GetTorrentDownloadPath(const FeedItem::EpisodeData& episode_data) {
       ValidateFileName(subfolder);
       AddTrailingSlash(path);
       path += subfolder;
+      ReplaceString(path, L"\\", L"\\\\");
+      path = ReplaceVariables(path,episode_data,false,false);
+      RemoveTrailingSlash(path);  // gets mixed up as an escape character
       if (CreateFolder(path) && anime_item) {
         anime_item->SetFolder(path);
         Settings.Save();
       }
     }
   }
-  ReplaceString(path, L"\\", L"\\\\");
-  path = ReplaceVariables(path,episode_data,false,false);
-  RemoveTrailingSlash(path);  // gets mixed up as an escape character
+  
 
   return path;
 }
