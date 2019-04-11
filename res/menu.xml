@@ -344,7 +344,7 @@
 		<item name="Anime ID"         action="%id%"/>
 		<item name="Anime title"      action="%title%"/>
 		<item name="Anime season"     action="%season%"/>
-		<item name="Anime year" 	  action="%year%"/>
+		<item name="Anime year"       action="%year%"/>
 		<item name="Anime URL"        action="%animeurl%"/>
 		<item name="Image URL"        action="%image%"/>
 		<item name="Total episodes"   action="%total%"/>
