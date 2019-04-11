@@ -10,3 +10,5 @@
 /project/vs*/*.sdf
 /project/vs*/*.suo
 /project/vs*/*.user
+
+.vscode/
