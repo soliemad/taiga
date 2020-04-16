@@ -674,7 +674,8 @@ void ExecuteAction(std::wstring action, WPARAM wParam, LPARAM lParam) {
   // PlayRandomAnime()
   //   Searches for a random episode of a random anime and plays it.
   } else if (action == L"PlayRandomAnime") {
-    anime::PlayRandomAnime();
+    const auto& anime_ids = lParam ? *reinterpret_cast<std::vector<int>*>(lParam) : std::vector<int>();
+    anime::PlayRandomAnime(anime_ids);
 
   // StartNewRewatch()
   //   Sets status to Currently Watching and plays first episode.

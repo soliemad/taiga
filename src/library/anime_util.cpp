@@ -314,7 +314,7 @@ bool PlayNextEpisodeOfLastWatchedAnime() {
   return PlayNextEpisode(anime_id);
 }
 
-bool PlayRandomAnime() {
+bool PlayRandomAnime(const std::vector<int> ids) {
   static time_t time_last_checked = 0;
   time_t time_now = time(nullptr);
   if (time_now > time_last_checked + (60 * 2)) {  // 2 minutes
@@ -326,6 +326,8 @@ bool PlayRandomAnime() {
 
   for (auto& pair : AnimeDatabase.items) {
     anime::Item& anime_item = pair.second;
+    if (!ids.empty() && std::find(ids.begin(), ids.end(), anime_item.GetId()) == ids.end())
+      continue;
     if (!anime_item.IsInList())
       continue;
     if (!anime_item.IsNextEpisodeAvailable())

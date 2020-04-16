@@ -905,7 +905,13 @@ LRESULT AnimeListDialog::OnListNotify(LPARAM lParam) {
               return TRUE;
             // Play random episode
             } else if (pnkd->wVKey == 'R') {
-              anime::PlayRandomEpisode(anime_id);
+              const auto anime_ids = GetCurrentIds();
+              if (anime_ids.size() > 1) {
+                anime::PlayRandomAnime(anime_ids);
+              }
+              else {
+                anime::PlayRandomEpisode(anime_id);
+              }
               return TRUE;
             }
           }
