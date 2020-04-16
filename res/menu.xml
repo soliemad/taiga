@@ -132,6 +132,8 @@
 	</menu>
 	<!-- Edit -->
 	<menu name="Edit">
+		<item name="Play &amp;random anime&#9;Ctrl+R" action="PlayRandomAnime()"/>
+		<item type="separator"/>
 		<item name="Set &amp;date started"   sub="EditDateStarted"/>
 		<item name="Set date &amp;completed" sub="EditDateCompleted"/>
 		<item name="Set &amp;episode..."  action="EditEpisode()"/>
